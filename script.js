@@ -104,12 +104,12 @@ let registrationOpen = localStorage.getItem(STORAGE_KEYS.REGISTRATION_OPEN) !== 
 let adminLoggedIn = localStorage.getItem(STORAGE_KEYS.ADMIN_LOGGED_IN) === 'true';
 
 // PLACEHOLDER URLS (update via comments)
-const REGISTRATION_URL = 'https://forms.google.com/registration-buildx'; // REPLACE
-const SUBMISSION_URL = 'https://forms.google.com/submission-buildx';     // REPLACE
-const WHATSAPP_URL = 'https://chat.whatsapp.com/invite-buildx';          // REPLACE
-const PROBLEMS_PDF_URL = 'https://example.com/problems.pdf';            // REPLACE
-const TIMETABLE_PDF_URL = 'https://example.com/timetable.pdf';          // REPLACE
-const MARKING_PDF_URL = 'https://example.com/marking.pdf';              // REPLACE
+const REGISTRATION_URL = 'https://forms.gle/oDMg2YssdVJv1qSC9';
+const SUBMISSION_URL = 'https://forms.gle/CrJ3Udjs5kVbvsrJ8';   
+const WHATSAPP_URL = 'https://chat.whatsapp.com/FjsNz7s6wcv5gPKI3yUCtF?mode=gi_t';         
+const PROBLEMS_PDF_URL = 'https://raw.githubusercontent.com/vishwakarthikeya/BuildX/main/assets/problem%20statement.pdf';            
+const TIMETABLE_PDF_URL = 'https://raw.githubusercontent.com/vishwakarthikeya/BuildX/main/assets/Time%20Table.pdf';          
+const MARKING_PDF_URL = 'https://raw.githubusercontent.com/vishwakarthikeya/BuildX/main/assets/Marks%20Distribution.pdf';              
 
 // ---------- DOM ELEMENTS ----------
 const problemSection = document.getElementById('problemStatementsSection');
