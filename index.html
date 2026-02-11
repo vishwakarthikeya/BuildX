@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+  <title>BuildX · Technical Competition</title>
+  
+  <!-- Google Fonts · Poppins + Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+  
+  <!-- Three.js for 3D neural background -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  
+  <!-- CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- 3D Neural Network Background Canvas -->
+  <canvas id="neural-bg"></canvas>
+  
+  <!-- Main Content Overlay -->
+  <div class="main-content">
+    
+    <!-- SECTION 1: HERO -->
+    <section class="hero glass-card">
+      <h1 class="hero-title">BuildX</h1>
+      <p class="hero-subtitle">Technical Competition - Code. Create. Compete.</p>
+      <p class="hero-tagline">Test your HTML, CSS & JavaScript skills in real-world problem solving</p>
+      <div class="registration-date">
+        <span class="date-glow">Registration Opens: February 17, 2026</span>
+      </div>
+    </section>
+    
+    <!-- SECTION 2: ABOUT THE EVENT -->
+    <section class="about glass-card">
+      <h2 class="section-title">About the Event</h2>
+      <div class="about-content">
+        <p>BuildX is a high-intensity frontend development competition where participants build real-world applications using pure HTML, CSS, and JavaScript. With 10 diverse problem statements, you'll solve, code, and present your solution under strict time constraints.</p>
+        <p class="highlight-text">Individual participation · 2-2.5 hours · 100 marks · GitHub submission mandatory</p>
+      </div>
+      <div class="highlights-grid">
+        <div class="highlight-item">
+          <span class="highlight-number">2-2.5h</span>
+          <span class="highlight-label">Duration</span>
+        </div>
+        <div class="highlight-item">
+          <span class="highlight-number">10</span>
+          <span class="highlight-label">Problem Statements</span>
+        </div>
+        <div class="highlight-item">
+          <span class="highlight-number">100</span>
+          <span class="highlight-label">Total Marks</span>
+        </div>
+        <div class="highlight-item">
+          <span class="highlight-number">60+30+10</span>
+          <span class="highlight-label">Coding · Pres · Demo</span>
+        </div>
+      </div>
+    </section>
+    
+    <!-- SECTION 3: REGISTRATION BUTTON (Dynamic) -->
+    <section class="registration-section">
+      <a id="registerBtn" href="#" class="btn btn-glow" target="_blank" rel="noopener noreferrer">Register Now</a>
+      <!-- PLACEHOLDER COMMENTS -->
+      <!-- REGISTRATION_FORM_URL: Insert Google Form link for registration -->
+      <!-- SUBMISSION_FORM_URL: Insert Google Form link for project submission -->
+    </section>
+    
+    <!-- SECTION 4: PROBLEM STATEMENTS (Hidden by default) -->
+    <section id="problemStatementsSection" class="problem-section glass-card" style="display: none;">
+      <h2 class="section-title">Choose Your Challenge</h2>
+      <div class="problem-accordion">
+        <!-- Problem 1 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-number">01</span>
+            <h3 class="problem-title">Advanced E-Commerce Cart System</h3>
+            <span class="problem-toggle">+</span>
+          </div>
+          <div class="problem-content">
+            <p><strong>Problem Statement:</strong> Design and develop a fully functional e-commerce frontend application that simulates real-world online shopping functionality using HTML, CSS, and JavaScript.</p>
+            <p><strong>Objective:</strong> To evaluate the participant's ability to manage dynamic UI rendering, handle cart state management, perform price calculations, and implement persistent data storage.</p>
+            <p><strong>Requirements:</strong></p>
+            <ul>
+              <li>Display a list of products with details (name, price, image, category).</li>
+              <li>Implement Add to Cart functionality.</li>
+              <li>Allow users to remove products from the cart.</li>
+              <li>Enable quantity update for each product.</li>
+              <li>Automatically calculate total price based on cart contents.</li>
+              <li>Implement product search functionality.</li>
+              <li>Implement category filtering.</li>
+              <li>Cart data must persist using localStorage or Firebase.</li>
+            </ul>
+            <p><strong>Expected Output:</strong> A responsive e-commerce website where users can browse products, manage a cart dynamically, and retain cart data even after page refresh.</p>
+          </div>
+        </div>
+        <!-- Problem 2 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-number">02</span>
+            <h3 class="problem-title">Dynamic Quiz Builder and Evaluator</h3>
+            <span class="problem-toggle">+</span>
+          </div>
+          <div class="problem-content">
+            <p><strong>Problem Statement:</strong> Develop a web application that allows dynamic creation and participation in quizzes with automated evaluation.</p>
+            <p><strong>Objective:</strong> To assess dynamic DOM manipulation, logical handling of question structures, and implementation of score computation with persistent storage.</p>
+            <p><strong>Requirements:</strong></p>
+            <ul>
+              <li>Provide functionality to add quiz questions dynamically.</li>
+              <li>Display quiz interface for user participation.</li>
+              <li>Automatically calculate and display score after submission.</li>
+              <li>Show performance summary message.</li>
+              <li>Store quiz history using localStorage or Firebase.</li>
+              <li>Optional: Timer feature for quiz attempt.</li>
+            </ul>
+            <p><strong>Expected Output:</strong> A dynamic quiz platform where quizzes can be created, attempted, evaluated, and stored for future reference.</p>
+          </div>
+        </div>
+        <!-- Problem 3 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-number">03</span>
+            <h3 class="problem-title">Smart Quiz Platform with Timer and Leaderboard</h3>
+            <span class="problem-toggle">+</span>
+          </div>
+          <div class="problem-content">
+            <p><strong>Problem Statement:</strong> Create an advanced quiz system with predefined questions, timed responses, and a leaderboard mechanism.</p>
+            <p><strong>Objective:</strong> To evaluate handling of timers, real-time score updates, and ranking logic using persistent data storage.</p>
+            <p><strong>Requirements:</strong></p>
+            <ul>
+              <li>Display predefined multiple-choice questions.</li>
+              <li>Implement timer per question or overall quiz timer.</li>
+              <li>Automatically submit quiz when timer ends.</li>
+              <li>Calculate and display final score.</li>
+              <li>Maintain leaderboard based on stored scores.</li>
+              <li>Use localStorage or Firebase for storing leaderboard data.</li>
+            </ul>
+            <p><strong>Expected Output:</strong> A fully functional timed quiz application with score calculation and leaderboard display.</p>
+          </div>
+        </div>
+        <!-- Problem 4 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-number">04</span>
+            <h3 class="problem-title">Student Performance Analytics Dashboard</h3>
+            <span class="problem-toggle">+</span>
+          </div>
+          <div class="problem-content">
+            <p><strong>Problem Statement:</strong> Develop a dashboard to manage and analyze student academic performance data.</p>
+            <p><strong>Objective:</strong> To test data structuring, calculation logic, and dashboard-style UI presentation.</p>
+            <p><strong>Requirements:</strong></p>
+            <ul>
+              <li>Add multiple students.</li>
+              <li>Enter marks for at least five subjects.</li>
+              <li>Calculate average marks.</li>
+              <li>Assign grade based on defined criteria.</li>
+              <li>Display class average.</li>
+              <li>Identify top performer automatically.</li>
+              <li>Persist student data using localStorage or Firebase.</li>
+            </ul>
+            <p><strong>Expected Output:</strong> An interactive dashboard displaying individual and class performance metrics with persistent student records.</p>
+          </div>
+        </div>
+        <!-- Problem 5 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-number">05</span>
+            <h3 class="problem-title">Health and Fitness Progress Analyzer</h3>
+            <span class="problem-toggle">+</span>
+          </div>
+          <div class="problem-content">
+            <p><strong>Problem Statement:</strong> Design a web-based health tracking system to monitor fitness progress over time.</p>
+            <p><strong>Objective:</strong> To evaluate logical implementation of health metrics calculation and progress visualization.</p>
+            <p><strong>Requirements:</strong></p>
+            <ul>
+              <li>Input daily weight.</li>
+              <li>Calculate BMI based on height and weight.</li>
+              <li>Allow user to set target weight.</li>
+              <li>Display weight progress graph.</li>
+              <li>Predict approximate goal achievement timeline (simple logic).</li>
+              <li>Store health records persistently.</li>
+            </ul>
+            <p><strong>Expected Output:</strong> A health tracking system with progress visualization and long-term data retention.</p>
+          </div>
+        </div>
+        <!-- Problem 6 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-number">06</span>
+            <h3 class="problem-title">Smart Attendance Tracking System</h3>
+            <span class="problem-toggle">+</span>
+          </div>
+          <div class="problem-content">
+            <p><strong>Problem Statement:</strong> Create an attendance management system to record and analyze student attendance data.</p>
+            <p><strong>Objective:</strong> To test structured data handling, percentage calculations, and conditional alert mechanisms.</p>
+            <p><strong>Requirements:</strong></p>
+            <ul>
+              <li>Add student names.</li>
+              <li>Mark daily attendance (Present/Absent).</li>
+              <li>Calculate attendance percentage automatically.</li>
+              <li>Display warning for low attendance (below threshold).</li>
+              <li>Provide monthly summary.</li>
+              <li>Persist attendance records.</li>
+            </ul>
+            <p><strong>Expected Output:</strong> A system that maintains attendance data and generates percentage analysis with alerts.</p>
+          </div>
+        </div>
+        <!-- Problem 7 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-number">07</span>
+            <h3 class="problem-title">Workout Planner with Weekly Schedule</h3>
+            <span class="problem-toggle">+</span>
+          </div>
+          <div class="problem-content">
+            <p><strong>Problem Statement:</strong> Develop a workout planning system to organize and monitor weekly fitness routines.</p>
+            <p><strong>Objective:</strong> To evaluate scheduling logic, completion tracking, and data persistence.</p>
+            <p><strong>Requirements:</strong></p>
+            <ul>
+              <li>Add exercises.</li>
+              <li>Assign exercises to specific days of the week.</li>
+              <li>Mark workouts as completed.</li>
+              <li>Calculate weekly completion percentage.</li>
+              <li>Persist weekly workout schedule.</li>
+            </ul>
+            <p><strong>Expected Output:</strong> A weekly workout planner with completion tracking and stored schedule data.</p>
+          </div>
+        </div>
+        <!-- Problem 8 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-number">08</span>
+            <h3 class="problem-title">Personal Knowledge Base Manager</h3>
+            <span class="problem-toggle">+</span>
+          </div>
+          <div class="problem-content">
+            <p><strong>Problem Statement:</strong> Create a web application for managing personal notes and categorized knowledge entries.</p>
+            <p><strong>Objective:</strong> To assess CRUD operations, filtering logic, and search functionality implementation.</p>
+            <p><strong>Requirements:</strong></p>
+            <ul>
+              <li>Add notes with title and description.</li>
+              <li>Tag notes with categories.</li>
+              <li>Edit and delete notes.</li>
+              <li>Search notes by keyword.</li>
+              <li>Filter notes by tags.</li>
+              <li>Persist notes using localStorage or Firebase.</li>
+            </ul>
+            <p><strong>Expected Output:</strong> A searchable and categorized knowledge management system with persistent note storage.</p>
+          </div>
+        </div>
+        <!-- Problem 9 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-number">09</span>
+            <h3 class="problem-title">Interactive Flashcard Learning System</h3>
+            <span class="problem-toggle">+</span>
+          </div>
+          <div class="problem-content">
+            <p><strong>Problem Statement:</strong> Design a flashcard-based learning application for interactive study sessions.</p>
+            <p><strong>Objective:</strong> To test animation handling, progress tracking, and structured data storage.</p>
+            <p><strong>Requirements:</strong></p>
+            <ul>
+              <li>Add flashcards with question and answer.</li>
+              <li>Implement card flip animation.</li>
+              <li>Mark flashcards as mastered.</li>
+              <li>Track learning progress percentage.</li>
+              <li>Persist flashcard data.</li>
+            </ul>
+            <p><strong>Expected Output:</strong> An interactive flashcard system that tracks mastery and stores learning progress.</p>
+          </div>
+        </div>
+        <!-- Problem 10 -->
+        <div class="problem-card">
+          <div class="problem-header">
+            <span class="problem-number">10</span>
+            <h3 class="problem-title">Digital Certificate Generator</h3>
+            <span class="problem-toggle">+</span>
+          </div>
+          <div class="problem-content">
+            <p><strong>Problem Statement:</strong> Develop a certificate generation system that dynamically creates customized certificates.</p>
+            <p><strong>Objective:</strong> To evaluate dynamic content rendering, template switching, and file export handling.</p>
+            <p><strong>Requirements:</strong></p>
+            <ul>
+              <li>Input participant name, event name, and date.</li>
+              <li>Generate certificate preview dynamically.</li>
+              <li>Allow selection between multiple certificate templates.</li>
+              <li>Provide option to download certificate as image or PDF.</li>
+              <li>Persist template preference or last generated data.</li>
+            </ul>
+            <p><strong>Expected Output:</strong> A customizable certificate generator with downloadable output and stored preferences.</p>
+          </div>
+        </div>
+      </div>
+      <div class="download-section">
+        <a id="downloadProblemsBtn" href="#" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Download Problem Statements (PDF)</a>
+        <!-- PROBLEM_STATEMENTS_PDF_URL: Insert PDF download link -->
+      </div>
+    </section>
+    
+    <!-- SECTION 5: EVENT SCHEDULE / TIMETABLE -->
+    <section class="timetable-section glass-card">
+      <h2 class="section-title">Event Timeline</h2>
+      
+      <!-- Visual Timeline - Desktop Horizontal / Mobile Vertical -->
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-icon">📋</div>
+          <div class="timeline-content">
+            <h4>Reporting & Setup</h4>
+            <p class="timeline-time">09:45 - 10:00 AM</p>
+            <p>Late entry allowed up to 30 mins</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon">🚀</div>
+          <div class="timeline-content">
+            <h4>Event Start</h4>
+            <p class="timeline-time">10:00 AM</p>
+            <p>Problem statements announced</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon">💻</div>
+          <div class="timeline-content">
+            <h4>Development Phase</h4>
+            <p class="timeline-time">10:10 - 11:10 AM</p>
+            <p>1 hour coding · fixed duration</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon">⏰</div>
+          <div class="timeline-content">
+            <h4>Code Freeze</h4>
+            <p class="timeline-time">11:20 AM</p>
+            <p>GitHub submission deadline</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon">👨‍⚖️</div>
+          <div class="timeline-content">
+            <h4>Evaluation Round</h4>
+            <p class="timeline-time">11:20 - 12:10 PM</p>
+            <p>Judges visit participants</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-icon">🏆</div>
+          <div class="timeline-content">
+            <h4>Result</h4>
+            <p class="timeline-time">12:30 PM</p>
+            <p>Event end · fixed</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="rules-box">
+        <h4>📌 Important Rules</h4>
+        <ul>
+          <li>Start and end times are strictly fixed · No extension</li>
+          <li>GitHub repository submission is MANDATORY · No offline submission</li>
+          <li>Development time: exactly 1 hour · Code freeze enforced</li>
+          <li>Late entry allowed (≤30 mins) but NO extra time</li>
+        </ul>
+      </div>
+      
+      <div class="download-section">
+        <a id="downloadTimetableBtn" href="#" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Download Timetable (PDF)</a>
+        <!-- TIMETABLE_PDF_URL: Insert timetable PDF download link -->
+      </div>
+    </section>
+    
+    <!-- SECTION 6: MARKING DISTRIBUTION -->
+    <section class="marking-section glass-card">
+      <h2 class="section-title">Evaluation Criteria</h2>
+      <div class="marks-total">Total Marks: 100</div>
+      
+      <div class="marks-categories">
+        <!-- Coding 60% -->
+        <div class="marks-category">
+          <h3 class="category-title">1. Coding — 60 Marks</h3>
+          <div class="mark-bars">
+            <div class="mark-item">
+              <span class="mark-label">Core Implementation</span>
+              <span class="mark-value">20</span>
+              <div class="progress-bar"><div class="progress-fill" style="width: 33%;"></div></div>
+            </div>
+            <div class="mark-item">
+              <span class="mark-label">Functionality & Logic</span>
+              <span class="mark-value">15</span>
+              <div class="progress-bar"><div class="progress-fill" style="width: 25%;"></div></div>
+            </div>
+            <div class="mark-item highlight">
+              <span class="mark-label">Data Handling (LocalStorage/Firebase)</span>
+              <span class="mark-value">10</span>
+              <div class="progress-bar"><div class="progress-fill" style="width: 17%;"></div></div>
+              <span class="mandatory-tag">MANDATORY</span>
+            </div>
+            <div class="mark-item">
+              <span class="mark-label">Code Quality & Structure</span>
+              <span class="mark-value">10</span>
+              <div class="progress-bar"><div class="progress-fill" style="width: 17%;"></div></div>
+            </div>
+            <div class="mark-item">
+              <span class="mark-label">Innovation & Enhancement</span>
+              <span class="mark-value">5</span>
+              <div class="progress-bar"><div class="progress-fill" style="width: 8%;"></div></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Presentation 30% -->
+        <div class="marks-category">
+          <h3 class="category-title">2. Presentation — 30 Marks</h3>
+          <div class="mark-item">
+            <span class="mark-label">Project Explanation</span>
+            <span class="mark-value">15</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 50%;"></div></div>
+          </div>
+          <div class="mark-item">
+            <span class="mark-label">PowerPoint (PPT)</span>
+            <span class="mark-value">5</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 17%;"></div></div>
+          </div>
+          <div class="mark-item">
+            <span class="mark-label">Q&A / Viva</span>
+            <span class="mark-value">10</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 33%;"></div></div>
+          </div>
+        </div>
+        
+        <!-- Output Demo 10% -->
+        <div class="marks-category">
+          <h3 class="category-title">3. Output Demonstration — 10 Marks</h3>
+          <div class="mark-item">
+            <span class="mark-label">Working features, no errors, smooth demo</span>
+            <span class="mark-value">10</span>
+            <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="github-mandatory">
+        <span class="warning-icon">⚠️</span>
+        <strong>GitHub Repository Submission is MANDATORY</strong>
+        <p>Failure to submit repository link → DISQUALIFICATION from ranking</p>
+      </div>
+      
+      <div class="download-section">
+        <a id="downloadMarkingBtn" href="#" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Download Marking Criteria (PDF)</a>
+        <!-- MARKING_PDF_URL: Insert marking distribution PDF download link -->
+      </div>
+    </section>
+    
+    <!-- SECTION 7: JOIN WHATSAPP GROUP -->
+    <section class="whatsapp-section glass-card">
+      <h2 class="section-title">Stay Updated</h2>
+      <p>Join our WhatsApp group for event updates, announcements, and clarifications</p>
+      <a id="whatsappBtn" href="https://chat.whatsapp.com/FjsNz7s6wcv5gPKI3yUCtF?mode=gi_t" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 2.1.7 4.05 1.89 5.62L2.1 21.9l4.52-1.88c1.52.83 3.27 1.28 5.12 1.28 5.46 0 9.91-4.45 9.91-9.91 0-5.46-4.45-9.91-9.91-9.91zm0 18.08c-1.78 0-3.52-.48-5.03-1.38l-.36-.22-3.18 1.32 1.04-3.15-.24-.38c-.95-1.52-1.46-3.29-1.46-5.12 0-4.71 3.83-8.54 8.54-8.54s8.54 3.83 8.54 8.54-3.83 8.54-8.54 8.54zm4.68-6.42c-.25-.12-1.47-.73-1.7-.81-.23-.08-.4-.12-.57.12-.17.24-.66.81-.81.98-.15.17-.3.19-.55.07-.25-.12-1.07-.4-2.04-1.27-.76-.68-1.27-1.52-1.42-1.78-.15-.26-.02-.4.11-.53.11-.11.25-.29.37-.44.12-.15.16-.25.24-.42.08-.17.04-.31-.02-.44-.06-.12-.57-1.37-.78-1.88-.2-.49-.41-.42-.56-.43h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.44 1.03 2.61.13.17 1.78 2.73 4.32 3.73.6.24 1.07.38 1.44.49.6.18 1.15.15 1.58.09.48-.06 1.47-.6 1.68-1.18.21-.58.21-1.08.15-1.18-.06-.1-.22-.16-.47-.28z'/%3E%3C/svg%3E" alt="WhatsApp" style="width: 20px; height: 20px; margin-right: 8px;">
+        Join WhatsApp Group
+      </a>
+      <!-- WHATSAPP_GROUP_URL: Insert WhatsApp group invitation link -->
+    </section>
+    
+    <!-- SECTION 8: FOOTER -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="organizer-info">
+          <p class="organizer-title">Student Coordinator & Organizer</p>
+          <p class="organizer-name">C.H. Vishwa Karthikeya</p>
+          <p class="organizer-phone">📞 810-658-6390</p>
+          <p class="organizer-query">For any doubts or queries, contact the above number</p>
+        </div>
+        <div class="admin-login-container">
+          <button id="adminLoginBtn" class="admin-login-link">Admin Login</button>
+        </div>
+      </div>
+    </footer>
+  </div>
+  
+  <!-- ADMIN LOGIN MODAL -->
+  <div id="adminModal" class="modal">
+    <div class="modal-content glass-card">
+      <span class="close-modal">&times;</span>
+      <h3 class="modal-title">Admin Authentication</h3>
+      <div class="form-group">
+        <label for="adminEmail">Email</label>
+        <input type="email" id="adminEmail" placeholder="buildx@gmail.com" value="buildx@gmail.com">
+      </div>
+      <div class="form-group">
+        <label for="adminPassword">Password</label>
+        <input type="password" id="adminPassword" placeholder="••••••••••">
+      </div>
+      <div class="modal-actions">
+        <button id="adminLoginSubmit" class="btn btn-primary">Login</button>
+        <button id="adminLoginCancel" class="btn btn-secondary">Cancel</button>
+      </div>
+      <div id="adminError" class="error-message"></div>
+    </div>
+  </div>
+  
+  <!-- ADMIN PANEL MODAL -->
+  <div id="adminPanelModal" class="modal">
+    <div class="modal-content glass-card admin-panel">
+      <span class="close-modal">&times;</span>
+      <div class="admin-header">
+        <h3 class="modal-title">Admin Dashboard</h3>
+        <button id="adminLogoutBtn" class="btn btn-small">Logout</button>
+      </div>
+      <div class="toggle-controls">
+        <div class="toggle-item">
+          <label class="toggle-label">
+            <span>Enable Problem Statements</span>
+            <div class="toggle-switch">
+              <input type="checkbox" id="toggleProblems">
+              <span class="toggle-slider"></span>
+            </div>
+          </label>
+          <p class="toggle-desc">Show/Hide Problem Statements section</p>
+        </div>
+        <div class="toggle-item">
+          <label class="toggle-label">
+            <span>Enable Project Submission</span>
+            <div class="toggle-switch">
+              <input type="checkbox" id="toggleSubmission">
+              <span class="toggle-slider"></span>
+            </div>
+          </label>
+          <p class="toggle-desc">Switch Register → Submit Your Project</p>
+        </div>
+        <div class="toggle-item">
+          <label class="toggle-label">
+            <span>Registration Open</span>
+            <div class="toggle-switch">
+              <input type="checkbox" id="toggleRegistration" checked>
+              <span class="toggle-slider"></span>
+            </div>
+          </label>
+          <p class="toggle-desc">Enable/disable registration button</p>
+        </div>
+      </div>
+      <p class="admin-note">Changes are saved automatically and reflected immediately.</p>
+    </div>
+  </div>
+  
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+</body>
+</html>
